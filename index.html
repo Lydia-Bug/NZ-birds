@@ -17,16 +17,50 @@
             <div id="search">
                 <h2>Filter Birds</h2>
                 <p>Search</p>
+                <input type="text" placeholder="Search.." name="search">
                 <p>Conservation Status</p>
+                <select name="Conservation Status" id="status_menu">
+                    <option value="All">All</option>
+                    <option value="Not_threatened">Not Threatened</option>
+                    <option value="Naturally_uncommon">Naturally Uncommon</option>
+                    <option value="Relict">Relict</option>
+                    <option value="Recovering">Recovering</option>
+                    <option value="Declining">Declining</option>
+                    <option value="Nationally_increasing">Nationally Increasing</option>
+                    <option value="Nationally_vulnerable">Nationally Vulnerable</option>
+                    <option value="Nationally_endangered">Nationally Endangered</option>
+                    <option value="Nationally_critical">Nationally Critical</option>
+                    <option value="Extinct">Extinct</option>
+                    <option value="Data_deficient">Data Deficient</option>
+                </select>
                 <p>Sort by</p>
+                <select name="Sort by..." id="sort_by">
+                    <option value="Default">Default</option>
+                    <option value="English Name">English Name</option>
+                    <option value="Maori Name">Maori Name</option>
+                    <option value="Scientific Name">Scientific name</option>
+                    <option value="Order">Order</option>
+                    <option value="Family">Family</option>
+                    <option value="Length">Length</option>
+                    <option value="Weight">Weight</option>
+                    <option value="Photographer">Photographer</option>
+                </select>
+                <button type="button">Filter Results</button> 
                 <p><span>4</span><span> results found</span></p>
             </div>
             <div id="status_key">
                 <h2>Conservation Status</h2>
-                <span class="colour_circle"></span><span>Nationally Vulnerable</span>
-                <span class="colour_circle"></span><span>Nationally Vulnerable</span>
-                <span class="colour_circle"></span><span>Nationally Vulnerable</span>
-                <span class="colour_circle"></span><span>Nationally Vulnerable</span>
+                <p><span class="colour_circle" id="Not_threatened"></span><span>Not Threatened</span></p>
+                <p><span class="colour_circle" id="Naturally_uncommon"></span><span>Naturally Uncommon</span></p>
+                <p><span class="colour_circle" id="Relict"></span><span>Relict</span></p>
+                <p><span class="colour_circle" id="Recovering"></span><span>Recovering</span></p>
+                <p><span class="colour_circle" id="Declining"></span><span>Declining</span></p>
+                <p><span class="colour_circle" id="Nationally_increasing"></span><span>Nationally Increasing</span></p>
+                <p><span class="colour_circle" id="Nationally_vulnerable"></span><span>Nationally Vulnerable</span></p>
+                <p><span class="colour_circle" id="Nationally_endangered"></span><span>Nationally Endangered</span></p>
+                <p><span class="colour_circle" id="Nationally_critical"></span><span>Nationally Critical</span></p>
+                <p><span class="colour_circle" id="Extinct"></span><span>Extinct</span></p>
+                <p><span class="colour_circle" id="Data_deficient"></span><span>Data Deficient</span></p>
                 <p>Conservation status from <a href="https://www.doc.govt.nz/nature/conservation-status/">DOC website</a></p>
             </div>
         </div>
