@@ -4,9 +4,10 @@
     padding: 0px;
 }
 
-p{
+p, h1, h2{
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* Layout */
 
@@ -54,7 +55,8 @@ footer{
     }
 
     .info_card{
-        width: 300px;
+        width: 30em;
+        margin: 1em;
     }
 }
 
@@ -72,7 +74,6 @@ footer{
 .colour_circle{
     height: 1.2em;
     width: 1.2em;
-    background-color: #9b0000;
     border-radius: 50%;
     display: inline-block;
 
@@ -109,46 +110,46 @@ footer{
 
 /* Conservation Status Colors */
 
-#Not_threatened{
+.Not_Threatened{
     background-color:  #02a028;
 }
 
-#Naturally_uncommon{
+.Naturally_Uncommon{
     background-color: #649a31;
 }
 
-#Relict {
+.Relict {
     background-color: #99cb68;
 }
 
-#Recovering {
+.Recovering {
     background-color: #fecc33;
 }
 
-#Declining {
+.Declining {
     background-color: #fe9a01;
 }
 
-#Nationally_increasing {
+.Nationally_Increasing {
     background-color: #c26967;
 }
 
-#Nationally_vulnerable {
+.Nationally_Vulnerable {
     background-color: #9b0000;
 }
 
-#Nationally_endangered {
+.Nationally_Endangered {
     background-color: #660032;
 }
 
-#Nationally_critical {
+.Nationally_Critical {
     background-color: #320033;
 }
 
-#Extinct {
+.Extinct {
     background-color: black;
 }
 
-#Data_deficient{
+.Data_Deficient{
     background-color: black;
 }

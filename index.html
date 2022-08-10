@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="stylesheets.css">
     <script src="javascript.js"></script> 
     <title>NZBirds</title>
+
+    <template id="info_card_template">
+        <div class="info_card">
+            <div class="photo">
+                <img>
+                <p class = "conservation_status">
+                    <span class="colour_circle"></span>
+                    <span class="status_words"></span>
+                </p>
+            </div>
+            <div class="imformation">
+                <div class="names">
+                    <p class="primary_name"></p>
+                    <p class="english_name"></p>
+                </div>
+                <div class="stats_and_cats">
+                    <p class="scientific_name"><span class="label">Scientific name: </span><span class="scientific_name_word"></span></p>
+                    <p class="order"><span class="label">Order: </span><span class="order_word"></span></p>
+                    <p class="family"><span class="label">Family: </span><span class="family_word"></span></p>
+                    <p class="length"><span class="label">Length: </span><span class="length_word"></span></p>
+                    <p class="weight"><span class="label">Weight: </span><span><span class="weight_word"></span></p>
+                    <p class="credit"></p>
+                </div>
+            </div>
+        </div>
+    </template>
 </head>
 <body>
     <header>
@@ -21,145 +47,51 @@
                 <p>Conservation Status</p>
                 <select name="Conservation Status" id="status_menu">
                     <option value="All">All</option>
-                    <option value="Not_threatened">Not Threatened</option>
-                    <option value="Naturally_uncommon">Naturally Uncommon</option>
+                    <option value="Not Threatened">Not Threatened</option>
+                    <option value="Naturally Uncommon">Naturally Uncommon</option>
                     <option value="Relict">Relict</option>
                     <option value="Recovering">Recovering</option>
                     <option value="Declining">Declining</option>
-                    <option value="Nationally_increasing">Nationally Increasing</option>
-                    <option value="Nationally_vulnerable">Nationally Vulnerable</option>
-                    <option value="Nationally_endangered">Nationally Endangered</option>
-                    <option value="Nationally_critical">Nationally Critical</option>
+                    <option value="Nationally Increasing">Nationally Increasing</option>
+                    <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+                    <option value="Nationally Endangered">Nationally Endangered</option>
+                    <option value="Nationally Critical">Nationally Critical</option>
                     <option value="Extinct">Extinct</option>
-                    <option value="Data_deficient">Data Deficient</option>
+                    <option value="Data Deficient">Data Deficient</option>
                 </select>
                 <p>Sort by</p>
                 <select name="Sort by..." id="sort_by">
                     <option value="Default">Default</option>
-                    <option value="English Name">English Name</option>
-                    <option value="Maori Name">Maori Name</option>
-                    <option value="Scientific Name">Scientific name</option>
-                    <option value="Order">Order</option>
-                    <option value="Family">Family</option>
-                    <option value="Length">Length</option>
-                    <option value="Weight">Weight</option>
-                    <option value="Photographer">Photographer</option>
+                    <option value="primary_name">Maori Name</option>
+                    <option value="english_name">English Name</option>
+                    <option value="scientific_name">Scientific name</option>
+                    <option value="order">Order</option>
+                    <option value="family">Family</option>
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="credit">Photographer</option>
                 </select>
                 <button type="button">Filter Results</button> 
                 <p><span>4</span><span> results found</span></p>
             </div>
             <div id="status_key">
                 <h2>Conservation Status</h2>
-                <p><span class="colour_circle" id="Not_threatened"></span><span>Not Threatened</span></p>
-                <p><span class="colour_circle" id="Naturally_uncommon"></span><span>Naturally Uncommon</span></p>
-                <p><span class="colour_circle" id="Relict"></span><span>Relict</span></p>
-                <p><span class="colour_circle" id="Recovering"></span><span>Recovering</span></p>
-                <p><span class="colour_circle" id="Declining"></span><span>Declining</span></p>
-                <p><span class="colour_circle" id="Nationally_increasing"></span><span>Nationally Increasing</span></p>
-                <p><span class="colour_circle" id="Nationally_vulnerable"></span><span>Nationally Vulnerable</span></p>
-                <p><span class="colour_circle" id="Nationally_endangered"></span><span>Nationally Endangered</span></p>
-                <p><span class="colour_circle" id="Nationally_critical"></span><span>Nationally Critical</span></p>
-                <p><span class="colour_circle" id="Extinct"></span><span>Extinct</span></p>
-                <p><span class="colour_circle" id="Data_deficient"></span><span>Data Deficient</span></p>
+                <p><span class="colour_circle Not_Threatened"></span><span>Not Threatened</span></p>
+                <p><span class="colour_circle Naturally_Uncommon"></span><span>Naturally Uncommon</span></p>
+                <p><span class="colour_circle Relict"></span><span>Relict</span></p>
+                <p><span class="colour_circle Recovering"></span><span>Recovering</span></p>
+                <p><span class="colour_circle Declining"></span><span>Declining</span></p>
+                <p><span class="colour_circle Nationally_Increasing"></span><span>Nationally Increasing</span></p>
+                <p><span class="colour_circle Nationally_Vulnerable"></span><span>Nationally Vulnerable</span></p>
+                <p><span class="colour_circle Nationally_Endangered"></span><span>Nationally Endangered</span></p>
+                <p><span class="colour_circle Nationally_Critical"></span><span>Nationally Critical</span></p>
+                <p><span class="colour_circle Extinct"></span><span>Extinct</span></p>
+                <p><span class="colour_circle Data_Deficient"></span><span>Data Deficient</span></p>
                 <p>Conservation status from <a href="https://www.doc.govt.nz/nature/conservation-status/">DOC website</a></p>
             </div>
         </div>
         <div id="cards">
-            <div class="info_card">
-                <div class="photo">
-                    <img src="data/images/antipodes-island-parakeet-3.jpg">
-                    <p class = "conservation_status">
-                        <span class="colour_circle"></span>
-                        <span>Nationally Vulnerable</span>
-                    </p>
-                </div>
-                <div class="imformation">
-                    <div class="names">
-                        <p class="primary_name">Hihi</p>
-                        <p class="english_name">Stitchbird</p>
-                    </div>
-                    <div class="stats_and_cats">
-                        <p class="scientific_name"><span class="label">Scientific name: </span><span>Notiomystis cincta</span></p>
-                        <p class="order"><span class="label">Order: </span><span>Passeriformes</span></p>
-                        <p class="family"><span class="label">Family: </span><span>Notiomystidae</span></p>
-                        <p class="length"><span class="label">Length: </span><span>18cm</span></p>
-                        <p class="weight"><span class="label">Weight: </span><span><span>33g</span></p>
-                        <p class="credit"><span>Photo by </span><span>Tony WhiteHead</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info_card">
-                <div class="photo">
-                    <img src="data/images/antipodes-island-parakeet-3.jpg">
-                    <p class = "conservation_status">
-                        <span class="colour_circle"></span>
-                        <span>Nationally Vulnerable</span>
-                    </p>
-                </div>
-                <div class="imformation">
-                    <div class="names">
-                        <p class="primary_name">Hihi</p>
-                        <p class="english_name">Stitchbird</p>
-                    </div>
-                    <div class="stats_and_cats">
-                        <p class="scientific_name"><span class="label">Scientific name: </span><span>Notiomystis cincta</span></p>
-                        <p class="order"><span class="label">Order: </span><span>Passeriformes</span></p>
-                        <p class="family"><span class="label">Family: </span><span>Notiomystidae</span></p>
-                        <p class="length"><span class="label">Length: </span><span>18cm</span></p>
-                        <p class="weight"><span class="label">Weight: </span><span><span>33g</span></p>
-                        <p class="credit"><span>Photo by </span><span>Tony WhiteHead</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info_card">
-                <div class="photo">
-                    <img src="data/images/antipodes-island-parakeet-3.jpg">
-                    <p class = "conservation_status">
-                        <span class="colour_circle"></span>
-                        <span>Nationally Vulnerable</span>
-                    </p>
-                </div>
-                <div class="imformation">
-                    <div class="names">
-                        <p class="primary_name">Hihi</p>
-                        <p class="english_name">Stitchbird</p>
-                    </div>
-                    <div class="stats_and_cats">
-                        <p class="scientific_name"><span class="label">Scientific name: </span><span>Notiomystis cincta</span></p>
-                        <p class="order"><span class="label">Order: </span><span>Passeriformes</span></p>
-                        <p class="family"><span class="label">Family: </span><span>Notiomystidae</span></p>
-                        <p class="length"><span class="label">Length: </span><span>18cm</span></p>
-                        <p class="weight"><span class="label">Weight: </span><span><span>33g</span></p>
-                        <p class="credit"><span>Photo by </span><span>Tony WhiteHead</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info_card">
-                <div class="photo">
-                    <img src="data/images/antipodes-island-parakeet-3.jpg">
-                    <p class = "conservation_status">
-                        <span class="colour_circle"></span>
-                        <span>Nationally Vulnerable</span>
-                    </p>
-                </div>
-                <div class="imformation">
-                    <div class="names">
-                        <p class="primary_name">Hihi</p>
-                        <p class="english_name">Stitchbird</p>
-                    </div>
-                    <div class="stats_and_cats">
-                        <p class="scientific_name"><span class="label">Scientific name: </span><span>Notiomystis cincta</span></p>
-                        <p class="order"><span class="label">Order: </span><span>Passeriformes</span></p>
-                        <p class="family"><span class="label">Family: </span><span>Notiomystidae</span></p>
-                        <p class="length"><span class="label">Length: </span><span>18cm</span></p>
-                        <p class="weight"><span class="label">Weight: </span><span><span>33g</span></p>
-                        <p class="credit"><span>Photo by </span><span>Tony WhiteHead</span></p>
-                    </div>
-                </div>
-            </div>
+            <!-- Js places cards here-->
         </div>
     </main>
     <footer>
