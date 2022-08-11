@@ -19,6 +19,8 @@ function birdsToScreen(birds){
         
         cards.append(info_card);
     }
+    document.querySelector('#how_many_results').innerText = birds.length + " results found";
+
 }
 
 function filter(eventData){
@@ -115,6 +117,16 @@ function filterSortBy(sortBy, birds){
     return sortBirds;
 }
 
+function goToTop(){
+    //document.body.scrollTop = 0; // For Safari
+    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    document.querySelector('#filter').style.width = "80%";
+    document.querySelector('#filter').style.display = "block";
+    console.log("test");
+
+}
+
 async function main(){
     let response = await fetch("data/nzbird.json");
     all_birds = await response.json();
@@ -122,6 +134,9 @@ async function main(){
 
     let filterButton = document.querySelector('button');
     filterButton.addEventListener('click', filter);
+
+    let topButton = document.getElementById("topButton");
+    topButton.addEventListener('click', goToTop);
 
     birdsToScreen(all_birds);
 }

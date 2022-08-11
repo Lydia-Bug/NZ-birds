@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,21 +76,21 @@
                     <option value="credit">Photographer</option>
                 </select>
                 <button type="button">Filter Results</button> 
-                <p><span>4</span><span> results found</span></p>
+                <p id="how_many_results"></p>
             </div>
             <div id="status_key">
                 <h2>Conservation Status</h2>
-                <p><span class="colour_circle Not_Threatened"></span><span>Not Threatened</span></p>
-                <p><span class="colour_circle Naturally_Uncommon"></span><span>Naturally Uncommon</span></p>
-                <p><span class="colour_circle Relict"></span><span>Relict</span></p>
-                <p><span class="colour_circle Recovering"></span><span>Recovering</span></p>
-                <p><span class="colour_circle Declining"></span><span>Declining</span></p>
-                <p><span class="colour_circle Nationally_Increasing"></span><span>Nationally Increasing</span></p>
-                <p><span class="colour_circle Nationally_Vulnerable"></span><span>Nationally Vulnerable</span></p>
-                <p><span class="colour_circle Nationally_Endangered"></span><span>Nationally Endangered</span></p>
-                <p><span class="colour_circle Nationally_Critical"></span><span>Nationally Critical</span></p>
-                <p><span class="colour_circle Extinct"></span><span>Extinct</span></p>
-                <p><span class="colour_circle Data_Deficient"></span><span>Data Deficient</span></p>
+                <p><span class="colour_circle Not_Threatened"></span><span> Not Threatened</span></p>
+                <p><span class="colour_circle Naturally_Uncommon"></span><span> Naturally Uncommon</span></p>
+                <p><span class="colour_circle Relict"></span><span> Relict</span></p>
+                <p><span class="colour_circle Recovering"></span><span> Recovering</span></p>
+                <p><span class="colour_circle Declining"></span><span> Declining</span></p>
+                <p><span class="colour_circle Nationally_Increasing"></span><span> Nationally Increasing</span></p>
+                <p><span class="colour_circle Nationally_Vulnerable"></span><span> Nationally Vulnerable</span></p>
+                <p><span class="colour_circle Nationally_Endangered"></span><span> Nationally Endangered</span></p>
+                <p><span class="colour_circle Nationally_Critical"></span><span> Nationally Critical</span></p>
+                <p><span class="colour_circle Extinct"></span><span> Extinct</span></p>
+                <p><span class="colour_circle Data_Deficient"></span><span> Data Deficient</span></p>
                 <p>Conservation status from <a href="https://www.doc.govt.nz/nature/conservation-status/">DOC website</a></p>
             </div>
         </div>
@@ -94,6 +98,9 @@
             <!-- Js places cards here-->
         </div>
     </main>
+
+    <button id="topButton"><img src="back_to_top.png"></button> 
+   
     <footer>
         <p>Data licensed from <a href="https://www.birdsnz.org.nz/ ">Birds New Zealand</a> for educational use within the University of Otago</p>
     </footer>
