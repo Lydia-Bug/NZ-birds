@@ -13,27 +13,7 @@ html{
 }
 
 
-/* Layout */
 
-@media only screen and (max-width: 720px) {
-    #filter{
-        display: none;
-        width: 0; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        overflow-x: hidden; /* Disable horizontal scroll */
-        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-    }
-}
-
-@media only screen and (min-width: 720px) {
-    main{
-        /*display: flex;*/
-        display : grid;
-        grid-template-columns: 330px 1fr;
-    }
-
-}
 
 /* Header and Footer */
 
@@ -44,13 +24,11 @@ header, footer{
 }
 
 header{
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Roboto', sans-serif;
 }
 
-footer{
-   
-}
+
 
 /* To position the footer https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/ */
 body{
@@ -73,8 +51,9 @@ footer{
 /* Filter */
 
 #filter{
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(245, 245, 245);
     padding: 1em;
+    margin-bottom: 2em;
 }
 
 #filter h2, #filter p{
@@ -113,7 +92,7 @@ footer{
     padding: 1em;
     width: 90%;
 
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(245, 245, 245);
     box-shadow: 5px 5px rgb(201, 201, 201);
 }
 
@@ -142,8 +121,8 @@ footer{
 }
 
 .colour_circle{
-    height: 1.2em;
-    width: 1.2em;
+    height: 0.9em;
+    width: 0.9em;
     border-radius: 50%;
     display: inline-block;
 
@@ -159,8 +138,10 @@ footer{
 }
 
 .imformation{
-    display: flex;
+   /* display: flex;*/
     margin-top: 1em;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .names{
@@ -188,9 +169,27 @@ footer{
 }
 
 #topButton img{
-    width: 7em;
+    width: 5em;
 }
 
+
+/* Layout */
+
+
+@media only screen and (min-width: 720px) {
+    main{
+        /*display: flex;*/
+        display : grid;
+        grid-template-columns: 330px 1fr;
+    }
+    header{
+        font-size: 2em;
+    }
+    #filter{
+        margin-bottom: 0;
+    }
+
+}
 
 /* Conservation Status Colors */
 

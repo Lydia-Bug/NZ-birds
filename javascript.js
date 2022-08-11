@@ -24,7 +24,6 @@ function birdsToScreen(birds){
 }
 
 function filter(eventData){
-    console.log(eventData);
     let inputSearch = document.querySelector('input');
     let inputStatus = document.querySelector('#status_menu');
     let inputSortBy = document.querySelector('#sort_by');
@@ -32,8 +31,6 @@ function filter(eventData){
     let search = inputSearch.value;
     let status = inputStatus.value;
     let sortBy = inputSortBy.value;
-
-    //console.log(`${search} ${status} ${sortBy}`);
 
     let birds = filterConservationStatus(status, all_birds);
     birds = filterSearch(search, birds);
@@ -53,7 +50,6 @@ function filterConservationStatus(status, birds){
             filteredBirds.push(birds[i]);
         }
     }
-    console.log(filteredBirds);
     return filteredBirds;
 }
 
@@ -70,9 +66,22 @@ function filterSearch(search, birds){
             filteredBirds.push(birds[i]);
         }else if(birds[i].scientific_name.toLowerCase().normalize("NFD").includes(simpleSearch)){
             filteredBirds.push(birds[i]);
+        }else if(birds[i].order.toLowerCase().normalize("NFD").includes(simpleSearch)){
+            filteredBirds.push(birds[i]);
+        }else if(birds[i].family.toLowerCase().normalize("NFD").includes(simpleSearch)){
+            filteredBirds.push(birds[i]);
+        }else{
+            let birdNotPushed = true;
+            let j = 0
+            while(j < birds[i].other_names.length && birdNotPushed){
+                if(birds[i].other_names[j].toLowerCase().normalize("NFD").includes(simpleSearch)){
+                    filteredBirds.push(birds[i]);
+                    birdNotPushed = false;
+                }
+                j++;
+            }
         }
     }
-    console.log(filteredBirds);
     return filteredBirds;
 }
 
@@ -81,9 +90,7 @@ function filterSortBy(sortBy, birds){
         return birds;
     }
     let sortBirds = birds;
-    console.log(sortBy);
     if(sortBy == "length" || sortBy == "weight"){
-        console.log("test");
         for(let i = 0; i < sortBirds.length; i++){
             for(let j = 0; j < sortBirds.length-1; j++){
                 if(sortBirds[j]["size"][sortBy]["value"] > sortBirds[j+1]["size"][sortBy]["value"]){                   
@@ -118,21 +125,19 @@ function filterSortBy(sortBy, birds){
 }
 
 function goToTop(){
-    //document.body.scrollTop = 0; // For Safari
-    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-    document.querySelector('#filter').style.width = "80%";
-    document.querySelector('#filter').style.display = "block";
-    console.log("test");
-
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+   
 }
 
 async function main(){
-    let response = await fetch("data/nzbird.json");
-    all_birds = await response.json();
+    const response = await fetch("data/nzbird.json");
+	if (!response.ok){
+		console.error(response.status); // error handling
+	}
+	all_birds = await response.json()
 
-
-    let filterButton = document.querySelector('button');
+    let filterButton = document.getElementById("filterButton");
     filterButton.addEventListener('click', filter);
 
     let topButton = document.getElementById("topButton");
