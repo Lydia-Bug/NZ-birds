@@ -144,6 +144,10 @@ footer{
     grid-template-columns: 1fr 1fr;
 }
 
+.imformation p{
+    padding-bottom: 0.2em;
+}
+
 .names{
     font-size: 2em;
     flex-direction: row;
