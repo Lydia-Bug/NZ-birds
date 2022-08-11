@@ -73,33 +73,7 @@ function filterSearch(search, birds){
     console.log(filteredBirds);
     return filteredBirds;
 }
-/*
-function compare(a, b){
-    let namea = a.english_name.toUpperCase;
-    console.log(a.english_name);
-    let nameb = b.english_name.toUpperCase;
-    let comparison = 0
-    if(namea > nameb){
-        comparison = 1
-    }else if(namea < nameb){
-        comparison = -1;
-    }
-    console.log("tst");
-    return comparison;
-}
 
-function filterSortBy(sortBy, birds){
-    if(sortBy == "Default"){
-        return birds;
-    }
-    let sortBirds = birds;
-    console.log(sortBy);
-    sortedBirds = sortBirds.sort(compare);
-    console.log(sortBirds.sort(compare)[0])
-    console.log(sortedBirds[0]);
-    return sortedBirds;
-}
-*/
 function filterSortBy(sortBy, birds){
     if(sortBy == "Default"){
         return birds;
@@ -110,8 +84,7 @@ function filterSortBy(sortBy, birds){
         console.log("test");
         for(let i = 0; i < sortBirds.length; i++){
             for(let j = 0; j < sortBirds.length-1; j++){
-                if(sortBirds[j]["size"][sortBy]["value"] > sortBirds[j]["size"][sortBy]["value"]){
-                    
+                if(sortBirds[j]["size"][sortBy]["value"] > sortBirds[j+1]["size"][sortBy]["value"]){                   
                     let temp = sortBirds[j+1];
                     sortBirds[j+1] = sortBirds[j];
                     sortBirds[j] = temp;
@@ -121,7 +94,7 @@ function filterSortBy(sortBy, birds){
     }else if(sortBy == "credit"){
         for(let i = 0; i < sortBirds.length; i++){
             for(let j = 0; j < sortBirds.length-1; j++){
-                if(sortBirds[j]["photo"][sortBy] > sortBirds[j]["photo"][sortBy]){
+                if(sortBirds[j]["photo"][sortBy] > sortBirds[j+1]["photo"][sortBy]){
                     let temp = sortBirds[j+1];
                     sortBirds[j+1] = sortBirds[j];
                     sortBirds[j] = temp;
