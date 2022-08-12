@@ -20,7 +20,10 @@ function birdsToScreen(birds){
         cards.append(info_card);
     }
     document.querySelector('#how_many_results').innerText = birds.length + " results found";
+}
 
+function positionOpenButton(){
+    let filterWidth = document.querySelector('#filter').offsetWidth;
 }
 
 function filter(eventData){
@@ -129,6 +132,37 @@ function goToTop(){
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
    
 }
+/* https://www.sitepoint.com/delay-sleep-pause-wait/ */
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+
+
+function openOrCloseFilters(){
+    if(document.querySelector('#filter').style.right == "100%"){
+        
+        let n = 100;
+        let offSet = 100;
+        let inc = -(offSet - 20)/n;
+        
+        for(let i = 0; i < n; i++){
+            offSet = offSet + inc;
+            console.log(offSet + "%");
+            document.querySelector('#filter').style.right = offSet+"%";
+           sleep(10);
+        }
+        
+        document.querySelector('#filter').style.right = "20%";
+    }else{
+        console.log("test");
+        document.querySelector('#filter').style.right = "100%";
+    }
+    console.log("hi");
+}
 
 async function main(){
     const response = await fetch("data/nzbird.json");
@@ -142,6 +176,9 @@ async function main(){
 
     let topButton = document.getElementById("topButton");
     topButton.addEventListener('click', goToTop);
+
+    let openFiltersButton = document.getElementById("openFiltersButton");
+    openFiltersButton.addEventListener('click', openOrCloseFilters);
 
     birdsToScreen(all_birds);
 }

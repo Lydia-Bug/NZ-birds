@@ -29,15 +29,11 @@ header{
 }
 
 
-/* To position footer at bottom always */
+
+/* to position footer at bottom always */
 body{
     position: relative;
     min-height: 100vh;
-}
-
-main{
-    min-height: 100%;
-    
 }
 
 footer{
@@ -54,6 +50,10 @@ footer{
     background-color: rgb(245, 245, 245);
     padding: 1em;
     margin-bottom: 2em;
+
+    height: 100%;
+   
+    
 }
 
 #filter h2, #filter p{
@@ -70,7 +70,7 @@ footer{
     padding-bottom: 2em;
 }
 
-#filter button{
+#filterButton{
     background-color: rgb(173, 201, 127);
     border: none;
     font-size: 1em;
@@ -79,10 +79,22 @@ footer{
     display: block;
 }
 
-#filter button:hover{
+#filterButton:hover{
     background-color: rgb(194, 211, 167);
 }
 
+/* open filters button */
+#openFiltersButton{
+    
+    position: absolute;
+    left: 50%;
+    border: none;
+    background-color: rgb(0,0,0,0);
+}
+
+#openFiltersButton img{
+    width: 5em;
+}
 
 /* Information Card */
 
@@ -105,7 +117,7 @@ footer{
     }
 
     .info_card{
-        width: 23em;
+        width: 30em;
         margin: 1em;
     }
 }
@@ -178,7 +190,14 @@ footer{
 
 
 /* Layout */
-
+@media only screen and (max-width: 720px){
+    #filter{
+        width: 80%;
+        right: 100%;
+        position: fixed;
+        z-index: 99;
+    }
+}
 
 @media only screen and (min-width: 720px) {
     main{
@@ -192,6 +211,10 @@ footer{
     }
     #filter{
         margin-bottom: 0;
+        
+    }
+    #openFiltersButton{
+        display: none;
     }
 
 }
