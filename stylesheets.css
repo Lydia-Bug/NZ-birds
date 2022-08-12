@@ -29,15 +29,15 @@ header{
 }
 
 
-
-/* To position the footer https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/ */
+/* To position footer at bottom always */
 body{
     position: relative;
     min-height: 100vh;
 }
 
 main{
-    padding-bottom: 2.5rem;
+    min-height: 100%;
+    
 }
 
 footer{
@@ -105,7 +105,7 @@ footer{
     }
 
     .info_card{
-        width: 30em;
+        width: 23em;
         margin: 1em;
     }
 }
@@ -185,6 +185,7 @@ footer{
         /*display: flex;*/
         display : grid;
         grid-template-columns: 330px 1fr;
+        align-items: flex-start;
     }
     header{
         font-size: 2em;
