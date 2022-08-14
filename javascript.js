@@ -143,25 +143,11 @@ function sleep(milliseconds) {
 
 
 function openOrCloseFilters(){
-    if(document.querySelector('#filter').style.right == "100%"){
-        
-        let n = 100;
-        let offSet = 100;
-        let inc = -(offSet - 20)/n;
-        
-        for(let i = 0; i < n; i++){
-            offSet = offSet + inc;
-            console.log(offSet + "%");
-            document.querySelector('#filter').style.right = offSet+"%";
-           sleep(10);
-        }
-        
-        document.querySelector('#filter').style.right = "20%";
-    }else{
-        console.log("test");
+    if(document.querySelector('#filter').style.right == "20%"){
         document.querySelector('#filter').style.right = "100%";
+    }else{
+        document.querySelector('#filter').style.right = "20%";
     }
-    console.log("hi");
 }
 
 async function main(){
